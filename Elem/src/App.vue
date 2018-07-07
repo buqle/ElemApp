@@ -139,6 +139,7 @@ export default {
   .act-one{p:20px;w:100vw;mb:.2rem;}
   .tit-pub{fz:30px;c:#000;ml:6px;}
   .font26{fz:26px;}
+  .font28{fz:28px;}
   .fz30{fz:30px;}
 
   .blue{c:#3b95e9;}

@@ -45,7 +45,7 @@ export default {
     }else {
       return axios({
         method:'get',
-        url:`api${url}`,
+        url:`api/${url}`,
         params,
         timeout:30000
       }).then(checkStatus).then(checkCode)
@@ -57,8 +57,21 @@ export default {
     }else {
       return axios({
         method:'post',
-        url:`api${url}`,
+        url:`api/${url}`,
         data:qs.stringify(data),//将对象 序列化成URL的形式，以&进行拼接
+        timeout:30000
+      }).then(checkStatus).then(checkCode)
+    }
+  },
+  posts(url,data){
+    if(!url){
+      return
+    }else {
+      return axios({
+        method:'post',
+        url:`api/${url}`,
+        data:JSON.stringify(data),
+        processData: false,
         timeout:30000
       }).then(checkStatus).then(checkCode)
     }

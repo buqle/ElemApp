@@ -71,7 +71,7 @@
               alert('请输入验证码');
               return
             }
-            this.userInfo=await accountLogin({username:this.username,password:this.password,captcha_code:this.codeNum})
+            this.userInfo=await accountLogin({username:this.username,password:this.password,captcha_code:this.codeNum});
             if(!this.userInfo.user_id){
               alert(this.userInfo.message)
             }else {

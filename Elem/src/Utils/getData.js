@@ -38,4 +38,17 @@ export const accountLogin=(params)=>{
       reject(err)
     })
   })
+};
+
+//修改头像
+export const updateava=(urls,params)=>{
+  return new Promise((resolve,reject)=>{
+    axios.posts('eus/v1/users/'+urls+'/avatar',params)
+      .then(res=>{
+        console.log(res);
+        resolve(res)
+      }).catch(err=>{
+      reject(err)
+    })
+  })
 }

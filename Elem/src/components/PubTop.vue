@@ -2,7 +2,7 @@
     <div class="head-top">
       <div class="head-top1 fff" flexcont flexcont2>
         <slot name="logo"></slot>
-        <div @click="$router.push(userInfo?'/Account':'/login')" v-if="siginUp">
+        <div @click="$router.push(userInfo?'/account':'/login')" v-if="siginUp">
           <svg class="icon" aria-hidden="true" v-if="userInfo">
             <use xlink:href="#icon-wode"></use>
           </svg>

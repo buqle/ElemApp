@@ -26,6 +26,26 @@ export const RouterMap=[
         component:_imports('Login/index'),
         name:'登陆'
       }
+      ,
+      //个人信息
+      {
+        path:'/account',
+        component:_imports('Account/index'),
+        redirect:'/account/box',
+        children:[
+          {
+            path:'box',
+            component:_imports('Account/TopBar'),
+            name:'个人中心'
+          },
+          {
+            path:'info',
+            component:_imports('Account/UserInfo'),
+            name:'个人设置',
+            meta:{login:true}
+          }
+        ]
+      }
     ]
   }
 ];
