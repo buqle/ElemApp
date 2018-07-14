@@ -51,7 +51,7 @@
           }
         },
         methods:{
-          ...mapMutations(['RECORD_USERINFO']),
+          ...mapMutations(['RECORD_USERINFO','IN_FOOTER']),
           //切换显示密码
           changeButton(){
             this.showPassword=!this.showPassword
@@ -76,7 +76,8 @@
               alert(this.userInfo.message)
             }else {
               this.RECORD_USERINFO(this.userInfo);
-              this.$router.go(-1)
+              this.$router.go(-1);
+              this.IN_FOOTER()
             }
           }
 

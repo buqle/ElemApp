@@ -42,8 +42,53 @@ export const RouterMap=[
             path:'info',
             component:_imports('Account/UserInfo'),
             name:'个人设置',
-            meta:{login:true}
+            meta:{login:true},
+          },
+          {
+            path:'setname',
+            component:_imports('Account/children/Setname'),
+            name:'修改用户名',
           }
+          ,
+          {
+            path:'address',
+            component:_imports('Account/children/Shipp-add'),
+            name:'修改地址',
+          }
+          ,
+          {
+            path:'addressADD',
+            component:_imports('Account/children/Shipp-adds'),
+            name:'添加地址',
+          }
+          ,
+          {
+            path:'sreachADD',
+            component:_imports('Account/children/Sreach-add'),
+            name:'搜索地址',
+          }
+          ,
+          {
+            path:'changePass',
+            component:_imports('Account/children/ChangePassword'),
+            name:'修改密码',
+          }
+        ]
+      },
+
+      //订单
+      {
+        path:'/order',
+        component:_imports('Order/index'),
+        name:'订单列表',
+        redirect:'/order/orderlist',
+        meta:{login:true/*head:true*//*控制头部显示*/},
+        children:[
+          {
+            path:'orderlist',
+            component:_imports('Order/children/OrderList'),
+            name:'订单列表'
+          },
         ]
       }
     ]

@@ -9,14 +9,14 @@
         <i class="el-icon-arrow-right bold"></i>
       </p>
     </dt>
-    <dt flexcont flexcont2>
+    <dt flexcont flexcont2 @click="$router.push('/account/setname')">
       用户名
       <p flexcont flexcont2>
         {{userInfo.username}}
         <i class="el-icon-arrow-right bold"></i>
       </p>
     </dt>
-    <dt flexcont flexcont2>
+    <dt flexcont flexcont2 @click="$router.push('/account/address')">
       收货地址
       <i class="el-icon-arrow-right bold"></i>
     </dt>
@@ -26,19 +26,23 @@
       <i class="el-icon-arrow-right bold"></i>
     </dt>
     <h4>安全设置</h4>
-    <dt flexcont flexcont2>
+    <dt flexcont flexcont2 @click="$router.push('/account/changePass')">
       修改密码
       <i class="el-icon-arrow-right bold"></i>
     </dt>
   </dl>
-  <p flexcont style="justify-content: center"><el-button type="danger">退出登录</el-button></p>
+  <p flexcont style="justify-content: center"><el-button type="danger" @click="loginOut">退出登录</el-button></p>
+  <transition name="router-slid" mode="out-in">
+    <router-view></router-view>
+  </transition>
 </div>
 </template>
 
 <script>
     import {mapState} from 'vuex'
     import {imgBaseUrl} from "@/configs/url";
-    import {updateava} from "@/Utils/getData";
+    import {updateava,loginOutFun} from "@/Utils/getData";
+    import {removeStore} from "@/Utils/storage";
 
     export default {
       computed:{
@@ -70,7 +74,17 @@
                 alert('上传失败');
                 throw  new Error(err)
               }
+        },
+        //tuichu
+        async loginOut(){
+          await loginOutFun();
+          this.$store.state.userId='';
+          removeStore('user_id');
+          this.$set(this.$store.state.footerList,3,{tit:'未登录',icon:'icon-wode',path:'/login'})
+          this.$router.go(-1);
         }
+
+
       }
     }
 </script>

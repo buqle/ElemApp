@@ -155,5 +155,60 @@ export default {
   .el-button--primary{size:90% 80px;fz:32px;bdrs:1vw;}
   }
 
+  .router-slid-enter-active, .router-slid-leave-active {
+    transition: all .4s;
+  }
+  .router-slid-enter, .router-slid-leave-active {
+    transform: translate3d(2rem, 0, 0);
+    opacity: 0;
+  }
+  .set-name,.address-add-con1,.sreach-add-con1,.pub_input{
+    .el-input__inner{h:8vw;lh:8vw;}
+  }
+
+  .address-add-con1{
+  .el-input__inner{fz:28px;}
+  .el-input{mb:24px;}
+
+  }
+
+  .sreach-add-con1{
+    .el-input{w:75%;}
+  }
+
+  .animated {
+    -webkit-animation-duration:1s;
+    animation-duration:1s;
+    -webkit-animation-fill-mode:both;
+    animation-fill-mode:both
+  }
+  @keyframes shake {
+    0%,to {
+      -webkit-transform:translateZ(0);
+      transform:translateZ(0)
+    }
+    10%,30%,50%,70%,90% {
+      -webkit-transform:translate3d(-10px,0,0);
+      transform:translate3d(-10px,0,0)
+    }
+    20%,40%,60%,80% {
+      -webkit-transform:translate3d(10px,0,0);
+      transform:translate3d(10px,0,0)
+    }
+  }.shake {
+     -webkit-animation-name:shake;
+     animation-name:shake
+   }
+
+  .changepass-con1{
+    m:24px 0 30px 0;
+    .el-input{d:block;fz:3vw;}
+    .el-input__inner{bdt:none;bdr:none;bdl:none;h:10vw;lh:10vw;}
+    .changepass-con2{
+    .el-input__inner{bdb:none;}
+    .el-input{w:50%;}
+    }
+  }
+
 
 </style>

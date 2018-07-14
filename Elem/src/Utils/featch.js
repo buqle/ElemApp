@@ -75,6 +75,18 @@ export default {
         timeout:30000
       }).then(checkStatus).then(checkCode)
     }
+  },
+  delete(url,params){
+    if(!url){
+      return
+    }else {
+      return axios({
+        method:'delete',
+        url:`api/${url}`,
+        params,
+        timeout:30000
+      }).then(checkStatus).then(checkCode)
+    }
   }
 
 

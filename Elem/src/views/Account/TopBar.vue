@@ -1,18 +1,23 @@
 <template>
     <div class="top-bar">
       <div class="top-bar-con1 fff pos-a" @click="$router.push('/account/info')" flexcont flexcont2>
-        <img :src="imgBaseUrl+userInfo.avatar"  v-if="userInfo&&userInfo.user_id">
+        <img :src="imgBaseUrl+userInfo.avatar"  v-if="userId">
         <svg class="icon" aria-hidden="true" v-else>
           <use xlink:href="#icon-xiugaitouxiang"></use>
         </svg>
-        <p>
+        <p v-if="userId">
           <span class="bold">{{username}}</span><br>
           {{mobile}}
         </p>
+        <p v-else>
+          <span class="bold">登录/注册</span><br>
+          暂未绑定手机号
+        </p>
+
         <h4 class="el-icon-arrow-right pos-b"></h4>
       </div>
 
-      <div class="top-bar-con2 bgfff" flexcont>
+      <div class="top-bar-con2 bgfff" flexcont v-if="userId">
         <dl flexcont flexcont3>
           <dt><span class="bold">{{parseInt(balance).toFixed(2)}}</span>元</dt>
           <dd>我的余额</dd>
@@ -35,7 +40,6 @@
           <p class="ww1 pos-a" flexcont flexcont2>{{item.names}}<i class="el-icon-arrow-right pos-b"></i></p>
         </h4>
       </div>
-
     </div>
 </template>
 
@@ -62,7 +66,7 @@
       }
     },
       computed:{
-        ...mapState(['userInfo'])
+        ...mapState(['userInfo','userId'])
       },
     methods:{
       initData(){
@@ -112,8 +116,8 @@
   .top-bar-con3{
     mt:24px;
     h4{pl:20px;}
-    .icon{size:30px;}
-    p{ml:14px;bdb:1px solid #e6dada;p:16px 0;i{r:0;}c:#666;fz:27px;}
+    .icon{size:36px;}
+    p{ml:14px;bdb:1px solid #e6dada;p:26px 0;i{r:0;}c:#666;fz:30px;}
   h4:nth-child(4){mt:24px;}
   }
 </style>

@@ -37,7 +37,8 @@ export const accountLogin=(params)=>{
       }).catch(err=>{
       reject(err)
     })
-  })
+  });
+
 };
 
 //修改头像
@@ -51,4 +52,97 @@ export const updateava=(urls,params)=>{
       reject(err)
     })
   })
+};
+
+//获取所有收货地址列表
+export const getAllist=(uid)=>{
+  return new Promise((resolve,reject)=>{
+    axios.get('v1/users/'+uid+'/addresses',{})
+      .then(res=>{
+        console.log(res);
+        resolve(res)
+      }).catch(err=>{
+      reject(err)
+    })
+  })
+};
+
+//删除收货地址列表
+export const deletList=(uid,listId)=>{
+  return new Promise((resolve,reject)=>{
+    axios.delete('v1/users/'+uid+'/addresses/'+listId,{})
+      .then(res=>{
+        console.log(res);
+        resolve(res)
+      }).catch(err=>{
+      reject(err)
+    })
+  })
+};
+
+//搜索地址
+export const searchList=(params)=>{
+  return new Promise((resolve,reject)=>{
+    axios.get('/v1/pois',params)
+      .then(res=>{
+        console.log(res);
+        resolve(res)
+      }).catch(err=>{
+      reject(err)
+    })
+  })
+};
+
+//添加地址
+export const addressAdd=(uid,params)=>{
+  return new Promise((resolve,reject)=>{
+    axios.post('v1/users/'+uid+ '/addresses',params)
+      .then(res=>{
+        console.log(res);
+        resolve(res)
+      }).catch(err=>{
+      reject(err)
+    })
+  })
+};
+
+//修改密码
+export const changePassWord=(params)=>{
+  return new Promise((resolve,reject)=>{
+    axios.post('v2/changepassword',params)
+      .then(res=>{
+        console.log(res);
+        resolve(res)
+      }).catch(err=>{
+      reject(err)
+    })
+  })
+};
+
+//退出
+export const loginOutFun=()=>{
+  return new Promise((resolve,reject)=>{
+    axios.get('v2/signout',{})
+      .then(res=>{
+        console.log(res);
+        resolve(res)
+      }).catch(err=>{
+      reject(err)
+    })
+  })
+};
+
+//获取我的订单列表
+
+export const getorderList=(uid,params)=>{
+  return new Promise((resolve,reject)=>{
+    axios.get(`/bos/v2/users/${uid}/orders`,params)
+      .then(res=>{
+        console.log(res);
+        resolve(res)
+      }).catch(err=>{
+      reject(err)
+    })
+  })
 }
+

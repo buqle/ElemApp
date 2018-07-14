@@ -19,8 +19,13 @@ router.beforeEach((to,from,next)=>{
 });
 
 router.afterEach((to,from)=>{
-  if(to.meta.page){
-
+  if(to.name=='修改地址'&&store.state.removeAddress.length>0){
+    store.state.edit.show=true
+  }else {
+    store.state.edit.show=false
+  };
+  if(to.meta.head){
+    store.state.edit.head=false
   }
   document.title=to.name;
 });
