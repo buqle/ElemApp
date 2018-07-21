@@ -1,5 +1,5 @@
 <template>
-    <div class="head-top" v-show="edit.head">
+    <div class="head-top ww1" v-show="edit.head">
       <div class="head-top1 fff" flexcont flexcont2>
         <slot name="logo"></slot>
 
@@ -54,7 +54,7 @@
 
 <style scoped>
   .head-top{
-    bg:#2e8ee6;p:0px 16px;h:80px;lh:80px;
+    bg:#2e8ee6;p:0px 16px;h:80px;lh:80px;position: fixed;t:0;l:0;
     .icon{size:8vw;}
     .head-top2,.head-top1{align-items: center;}
     .head-top1{justify-content: space-between;.icon{size:6vw;}}

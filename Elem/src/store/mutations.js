@@ -62,7 +62,8 @@ export default {
 
 //我的订单
 [GET_ORDER_LIST](state,list){
-    state.order.orderList=list
+  state.order.orderList=state.order.orderList.concat(list)
+  //state.order.orderList=list
 }
 
 }

@@ -89,6 +89,11 @@ export const RouterMap=[
             component:_imports('Order/children/OrderList'),
             name:'订单列表'
           },
+          {
+            path:'shopcont',
+            component:_imports('Order/children/ShopCont'),
+            name:'订单详情'
+          },
         ]
       }
     ]

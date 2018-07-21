@@ -210,5 +210,5 @@ export default {
     }
   }
 
-
+.pub-mt{mt:10.6vw;}
 </style>

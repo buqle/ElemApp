@@ -12,10 +12,10 @@ export default {
     commit('ALL_LIST',res)
   },
   async orderList({commit,state},params){
-    if(state.order.orderList.length>0){
+    /*if(state.order.orderList.length>0){
       state.loading=false;
       return false;
-    }
+    }*/
     state.loading=true;
     let res=await getorderList(state.userId,params);
     state.loading=false;
