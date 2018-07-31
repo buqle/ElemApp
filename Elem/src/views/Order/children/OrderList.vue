@@ -50,9 +50,11 @@
         methods:{
           ...mapActions(['orderList']),
           getList(){
-            this.orderList({offset:this.offset,limit: 10})
+            this.orderList({offset:this.offset,limit: 10});
+            //this.order.orderIcon=
           },
           skip(i){
+
             this.$router.push({name:'订单详情',params:{type:i}})
           }
         },

@@ -28,7 +28,8 @@ const state={
     {tit:`${getStore('user_id')?'我的':'未登录'}`,icon:'icon-wode',path:`${getStore('user_id')?'/account/box':'/login'}`}
     ],
   order:{
-    orderList:[]
+    orderList:[],
+    orderIcon:[]
   }
 };
 export default new Vuex.Store({

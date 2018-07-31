@@ -144,5 +144,18 @@ export const getorderList=(uid,params)=>{
       reject(err)
     })
   })
-}
+};
+
+//订单详情
+export const getShopCont=(uid,orid)=>{
+  return new Promise((resolve,reject)=>{
+    axios.get(`/bos/v1/users/${uid}/orders/${orid}/snapshot`,{})
+      .then(res=>{
+        console.log(res);
+        resolve(res)
+      }).catch(err=>{
+      reject(err)
+    })
+  })
+};
 
