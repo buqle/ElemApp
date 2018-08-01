@@ -159,3 +159,16 @@ export const getShopCont=(uid,orid)=>{
   })
 };
 
+export const getFoodsType=(geohash,params)=>{
+  return new Promise((resolve,reject)=>{
+    axios.get('v2/index_entry',params)
+      .then(res=>{
+        console.log(res);
+        resolve(res)
+      }).catch(err=>{
+      reject(err)
+    })
+  })
+}
+
+

@@ -92,9 +92,18 @@ export const RouterMap=[
           {
             path:'shopcont',
             component:_imports('Order/children/ShopCont'),
-            name:'订单详情'
+            name:'订单详情',
+            meta:{footer:true}
           },
         ]
+      },
+
+
+      //外卖
+      {
+        path:'/takeaway',
+        name:'',
+        component:_imports('Takeaway/index')
       }
     ]
   }

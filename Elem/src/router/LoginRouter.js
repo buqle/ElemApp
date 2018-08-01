@@ -27,6 +27,11 @@ router.afterEach((to,from)=>{
   if(to.meta.head){
     store.state.edit.head=false
   }
+  if(to.meta.footer){
+    store.state.footerShow=false
+  }else {
+    store.state.footerShow=true
+  }
   document.title=to.name;
 });
 export  default router;
