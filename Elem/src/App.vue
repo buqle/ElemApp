@@ -210,4 +210,5 @@ export default {
   }
 
 .pub-mt{mt:10.6vw;}
+  .swiper-pagination-bullet{size:2vw;}
 </style>

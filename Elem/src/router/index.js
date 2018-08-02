@@ -102,8 +102,16 @@ export const RouterMap=[
       //外卖
       {
         path:'/takeaway',
-        name:'',
-        component:_imports('Takeaway/index')
+        name:'外卖',
+        component:_imports('Takeaway/index'),
+
+      },
+      //外卖列表
+      {
+        path:'/foodlist',
+        name:'外卖',
+        component:_imports('FoodList/index'),
+
       }
     ]
   }
