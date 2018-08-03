@@ -7,9 +7,9 @@
            <polygon points="0,3 10,3 5,8"/>
          </svg>
        </h4>
-        <transition name="showlist">
-          <section>
-            12123
+        <transition name="showlist" v-show="category">
+          <section v-show="sortBy==='food'">
+            123
           </section>
         </transition>
       </div>
@@ -18,7 +18,13 @@
 
 <script>
     export default {
-        name: "nav"
+      data(){
+        return{
+          geohash:'',
+          category:null,
+          sortBy:''//筛选条件
+        }
+      }
     }
 </script>
 

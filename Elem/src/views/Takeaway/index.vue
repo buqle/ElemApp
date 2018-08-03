@@ -57,7 +57,8 @@
            };
 
            this.foodTypes=foodArr;
-          })
+            this.swiper.slideTo(0)
+          })//初始化swiper
       },
     methods:{
           getCatId(url){

@@ -2,16 +2,16 @@
     <div>
       <pub-top go-back="true" :headTit="$route.query.title"></pub-top>
       <div style="height: 10.6vw;"></div>
-      <Nav></Nav>
+      <FoodTop></FoodTop>
 
     </div>
 </template>
 
 <script>
   import PubTop from '@/components/PubTop';
-  import Nav from './Nav'
+  import FoodTop from './FoodTop'
     export default {
-        components:{PubTop,Nav}
+        components:{PubTop,FoodTop}
     }
 </script>
 
