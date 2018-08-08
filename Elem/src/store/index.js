@@ -31,7 +31,15 @@ const state={
   order:{
     orderList:[],
     orderIcon:[]
-  }
+  },
+  geoList:{
+    latitude:'',
+    longitude:'',
+    geohash:'',
+    foodTit:''
+  },
+  //foodlist
+  foodList:[]
 };
 export default new Vuex.Store({
   state,getters,actions,mutations

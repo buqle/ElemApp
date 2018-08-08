@@ -1,5 +1,5 @@
-import {getUser,getAllist,getorderList} from "@/Utils/getData";
-import {GET_USERINFO,ALL_LIST,GET_ORDER_LIST} from "./mutationsTypes";
+import {getUser,getAllist,getorderList,getFoodList} from "@/Utils/getData";
+import {GET_USERINFO,ALL_LIST,GET_ORDER_LIST,GET_FOOD_LIST} from "./mutationsTypes";
 
 
 export default {
@@ -20,5 +20,10 @@ export default {
     let res=await getorderList(state.userId,params);
     state.loading=false;
     commit('GET_ORDER_LIST',res)
+  },
+  //food-list
+  async getFoodlist({commit},params){
+    let res=await getFoodList(params);
+    commit('GET_FOOD_LIST',res)
   }
 }

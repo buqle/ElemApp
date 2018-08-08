@@ -4,7 +4,7 @@
         <svg class="icon" aria-hidden="true" slot="search">
           <use xlink:href="#icon-sousuo"></use>
         </svg>
-        <p slot="miseTit">...</p>
+        <p slot="miseTit">{{geoList.foodTit}}</p>
       </pub-top>
       <div style="height: 10.6vw"></div>
       <div class="swiperWrap">
@@ -24,31 +24,32 @@
 <script>
   import PubTop from '@/components/PubTop';
   import {swiper,swiperSlide} from 'vue-awesome-swiper';
-  import {getFoodsType} from '@/Utils/getData';
-
-
+  import {getFoodsType,cityGuess,takeAddress} from '@/Utils/getData';
+  import {mapState,mapMutations} from 'vuex';
   export default {
         components:{PubTop,swiper,swiperSlide},
         data(){
           return{
             foodTypes:[],
             imgBaseUrl:'https://fuss10.elemecdn.com',
-            geohash:'31.22299,121.36025',
+            geohash:'',//经纬度
             swiperOption: {
               pagination: {
                 el: '.swiper-pagination',
                 clickable: true
               }
-            }
+            },
+
           }
         },
         computed:{
           swiper(){
             return this.$refs.Myswiper.swiper
-          }
+          },
+          ...mapState(['geoList'])
       },
       mounted(){
-          getFoodsType('31.22299,121.36025',{geohash:'31.22299,121.36025',group_type: '1','flags[]': 'F'}).then(res=>{
+          getFoodsType(this.geohash,{geohash:this.geohash,group_type: '1','flags[]': 'F'}).then(res=>{
            let resLength=res.length;
            let resArr=[...res];
            let foodArr=[];
@@ -68,7 +69,25 @@
             }else {
               return ''
             }
+          },
+      ...mapMutations(['RECORD_GEOHSH'])
+    },
+    //经纬度
+    async beforeMount(){
+          if(!this.$route.query.geohash){
+            const res=await cityGuess();
+            this.geohash=`${res.latitude},${res.longitude}`
+          }else {
+            this.geohash=this.$route.query.geohash
           }
+          this.$store.state.geoList.geohash=this.geohash;
+          if(this.geoList.foodTit){
+            return false;
+          }
+         let address=await takeAddress(this.geohash);
+         //this.$store.state.geoList.foodTit=address.name;
+        this.RECORD_GEOHSH(address)
+
     }
     }
 </script>

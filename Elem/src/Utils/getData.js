@@ -169,6 +169,47 @@ export const getFoodsType=(geohash,params)=>{
       reject(err)
     })
   })
+};
+
+//获取经纬度
+export const cityGuess=()=>{
+  return new Promise((resolve,reject)=>{
+    axios.get('v1/cities',{type:'guess'})
+      .then(res=>{
+        console.log(res);
+        resolve(res)
+      }).catch(err=>{
+      reject(err)
+    })
+  })
 }
+
+//获取经纬度和准确的定位地址
+export const takeAddress=(parmas)=>{
+  return new Promise((resolve,reject)=>{
+    axios.get('v2/pois/'+parmas)
+      .then(res=>{
+        console.log(res);
+        resolve(res)
+      }).catch(err=>{
+      reject(err)
+    })
+  })
+};
+
+//foodlist
+export const getFoodList=(params)=>{
+  return new Promise((resolve,reject)=>{
+    axios.get('shopping/v2/restaurant/category',params)
+      .then(res=>{
+        console.log(res);
+        resolve(res)
+      }).catch(err=>{
+      reject(err)
+    })
+  })
+}
+
+
 
 
