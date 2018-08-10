@@ -20,10 +20,17 @@
           </svg>
         </h4>
       </div>
-      <div>
+      <div  class="pos-a">
         <transition name="showlist" v-show="foodList.length>0">
-          <section v-show="sortBy==='food'">
-
+          <section v-show="sortBy==='food'" flexcont class="showlist-box pos-b">
+            <dl class="showlist-box-dl1">
+              <dt v-for="(item,index) in foodList" :key="index">
+                <p>{{item.name}}</p>
+              </dt>
+            </dl>
+            <dl>
+              <dt v-for="(list,index) in food.categoryArr" v-if="index>0">{{list.name}}</dt>
+            </dl>
           </section>
         </transition>
 
@@ -53,7 +60,8 @@
           sortBy:'',//筛选条件
           food:{
             tit:this.$route.query.title,
-            categoryArr:null
+            categoryArr:null,//右侧分类
+            restaurant_category_id:''
           }
         }
       },
@@ -76,17 +84,20 @@
         },
         ...mapActions(['getFoodlist']),
         async initData(){
+          this.food.restaurant_category_id=this.$route.query.restaurant_category_id
           if(this.foodList.length>0){
             return false;
           }
           await this.getFoodlist({latitude:this.geoList.latitude,longitude:this.geoList.longitude});
-          this.categoryArr.forEach(item=>{
-
-          })
         }
       },
-      created(){
-
+      async created(){
+       await this.initData();
+        this.foodList.forEach(item=>{
+          if(this.food.restaurant_category_id==item.id){
+            this.food.categoryArr=item.sub_categories;//选取对应的右侧菜单
+          }
+        })
       }
     }
 </script>
@@ -105,5 +116,11 @@
     .act{c:#3190e8; .sort_icon{fill: #3190e8;transform: rotate(180deg);}}
     h4{w:33.3%;}
     .sort_icon{transition: all .3s;fill: #949191;}
+  }
+  .showlist-box{
+    t:0;l:0;
+    dt{p:0 16px;h:9vw;lh:9vw;}
+    dl{h:414px;overflow-y: auto;}
+    .showlist-box-dl1{bg: #f1e4e2;}
   }
 </style>
