@@ -1,8 +1,8 @@
 <template>
     <div>
-      <pub-top go-back="true" :headTit="$route.query.title"></pub-top>
+      <pub-top go-back="true" :headTit="tit"></pub-top>
       <div style="height: 10.6vw;"></div>
-      <FoodTop></FoodTop>
+      <FoodTop @tit="changeTit"></FoodTop>
 
     </div>
 </template>
@@ -11,7 +11,17 @@
   import PubTop from '@/components/PubTop';
   import FoodTop from './FoodTop'
     export default {
-        components:{PubTop,FoodTop}
+        components:{PubTop,FoodTop},
+      data(){
+          return{
+            tit:this.$route.query.title
+          }
+      },
+      methods:{
+        changeTit(t){
+          this.tit=t
+        }
+      }
     }
 </script>
 

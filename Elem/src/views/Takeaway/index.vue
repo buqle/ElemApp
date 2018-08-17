@@ -8,7 +8,7 @@
       </pub-top>
       <div style="height: 10.6vw"></div>
       <div class="swiperWrap">
-      <swiper ref="Myswiper" :options="swiperOption" class="bgfff font28">
+      <swiper ref="Myswiper" :options="swiperOption" class="bgfff font28" v-if="foodTypes.length>0">
         <swiper-slide v-for="(item,index) in foodTypes" :key="index" flexcont class="food-head">
           <dl v-for="(food,index) in item" class="text-center" @click="$router.push({path:'/foodlist',query:{geohash,title:food.title,restaurant_category_id:getCatId(food.link)}})" :key="food.id">
             <dt><img :src="imgBaseUrl+food.image_url" alt=""></dt>
