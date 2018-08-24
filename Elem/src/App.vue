@@ -6,12 +6,14 @@
     <keep-alive>
       <router-view v-if="!$route.meta.keepAlive"/>
     </keep-alive>
+    <icon-svg></icon-svg>
   </div>
 </template>
 
 <script>
+  import IconSvg from '@/components/IconSvg'
 export default {
-
+  components:{IconSvg}
 }
 </script>
 

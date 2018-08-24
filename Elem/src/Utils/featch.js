@@ -37,7 +37,7 @@ function checkCode(res) {
   return res
 }
 
-const baseURL='https://easy-mock.com/mock/5a83160c948cfd365a524088/apis/'
+const baseURL='http://cangdu.org:8001/'
 export default {
   get(url,params){
     if(!url){

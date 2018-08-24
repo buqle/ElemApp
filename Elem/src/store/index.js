@@ -36,10 +36,12 @@ const state={
     latitude:'',
     longitude:'',
     geohash:'',
-    foodTit:''
+    foodTit:'',
+    filterList:''
   },
   //foodlist
-  foodList:[]
+  foodList:[],
+  shopList:[]
 };
 export default new Vuex.Store({
   state,getters,actions,mutations

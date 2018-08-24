@@ -1,5 +1,5 @@
-import {getUser,getAllist,getorderList,getFoodList} from "@/Utils/getData";
-import {GET_USERINFO,ALL_LIST,GET_ORDER_LIST,GET_FOOD_LIST} from "./mutationsTypes";
+import {getUser,getAllist,getorderList,getFoodList,getShopList} from "@/Utils/getData";
+import {GET_USERINFO,ALL_LIST,GET_ORDER_LIST,GET_FOOD_LIST,GET_SHOP_LIST} from "./mutationsTypes";
 
 
 export default {
@@ -25,5 +25,10 @@ export default {
   async getFoodlist({commit},params){
     let res=await getFoodList(params);
     commit('GET_FOOD_LIST',res)
+  },
+  //商家属性
+  async getShopLists({commit},params){
+    let res=await getShopList(params);
+    commit('GET_SHOP_LIST',res)
   }
 }

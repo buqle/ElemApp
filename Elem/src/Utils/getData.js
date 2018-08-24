@@ -208,8 +208,33 @@ export const getFoodList=(params)=>{
       reject(err)
     })
   })
+};
+
+
+//配送列表
+
+export const getFilterList=(params)=>{
+  return new Promise((resolve,reject)=>{
+    axios.get('shopping/v1/restaurants/delivery_modes',params)
+      .then(res=>{
+        console.log(res);
+        resolve(res)
+      }).catch(err=>{
+      reject(err)
+    })
+  })
+};
+
+
+//商家属性
+export const getShopList=(params)=>{
+  return new Promise((resolve,reject)=>{
+    axios.get('shopping/v1/restaurants/activity_attributes',params)
+      .then(res=>{
+        console.log(res);
+        resolve(res)
+      }).catch(err=>{
+      reject(err)
+    })
+  })
 }
-
-
-
-

@@ -1,5 +1,5 @@
 import {
-  RECORD_USERINFO,GET_USERINFO,RESET_NAME,ALL_LIST,ADD_ADRESS,ADDS_ADRESS,SECOND_LIST,IN_FOOTER,GET_ORDER_LIST,GET_FOOD_LIST,RECORD_GEOHSH
+  RECORD_USERINFO,GET_USERINFO,RESET_NAME,ALL_LIST,ADD_ADRESS,ADDS_ADRESS,SECOND_LIST,IN_FOOTER,GET_ORDER_LIST,GET_FOOD_LIST,RECORD_GEOHSH,GET_SHOP_LIST
 } from "./mutationsTypes";
 
 import {setStore,getStore} from "../Utils/storage";
@@ -76,6 +76,10 @@ export default {
     state.geoList.foodTit=res.name;
     state.geoList.latitude=res.latitude;
     state.geoList.longitude=res.longitude;
-  }
+  },
 
+ //商家属性列表
+  [GET_SHOP_LIST](state,list){
+    state.shopList=list
+  }
 }
