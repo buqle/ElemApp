@@ -3,7 +3,7 @@
       <pub-top go-back="true" :headTit="$route.name">
 
       </pub-top>
-
+      <div style="height: 10.6vw"></div>
       <transition name="router-slid" mode="out-in">
         <router-view></router-view>
       </transition>

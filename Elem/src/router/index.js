@@ -54,6 +54,7 @@ export const RouterMap=[
             path:'address',
             component:_imports('Account/children/Shipp-add'),
             name:'修改地址',
+            meta:{keepAlive:true}
           }
           ,
           {
@@ -92,9 +93,26 @@ export const RouterMap=[
           {
             path:'shopcont',
             component:_imports('Order/children/ShopCont'),
-            name:'订单详情'
+            name:'订单详情',
+            meta:{footer:true}
           },
         ]
+      },
+
+
+      //外卖
+      {
+        path:'/takeaway',
+        name:'外卖',
+        component:_imports('Takeaway/index'),
+        meta:{keepAlive:true}
+      },
+      //外卖列表
+      {
+        path:'/foodlist',
+        name:'外卖',
+        component:_imports('FoodList/index'),
+
       }
     ]
   }

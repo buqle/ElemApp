@@ -1,6 +1,7 @@
 <template>
     <div class="login-box">
       <pub-top head-tit="登录" go-back="true"></pub-top>
+      <div style="height: 10.6vw"></div>
       <div class="login-box1 bgfff">
         <el-input placeholder="请输入账号" v-model="username"></el-input>
         <div class="login-input" flexcont flexcont2>

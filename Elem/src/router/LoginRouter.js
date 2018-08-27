@@ -19,6 +19,7 @@ router.beforeEach((to,from,next)=>{
 });
 
 router.afterEach((to,from)=>{
+  //to 即将要进入的路由页面
   if(to.name=='修改地址'&&store.state.removeAddress.length>0){
     store.state.edit.show=true
   }else {
@@ -26,6 +27,11 @@ router.afterEach((to,from)=>{
   };
   if(to.meta.head){
     store.state.edit.head=false
+  }
+  if(to.meta.footer){
+    store.state.footerShow=false
+  }else {
+    store.state.footerShow=true
   }
   document.title=to.name;
 });

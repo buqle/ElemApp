@@ -144,5 +144,97 @@ export const getorderList=(uid,params)=>{
       reject(err)
     })
   })
+};
+
+//订单详情
+export const getShopCont=(uid,orid)=>{
+  return new Promise((resolve,reject)=>{
+    axios.get(`/bos/v1/users/${uid}/orders/${orid}/snapshot`,{})
+      .then(res=>{
+        console.log(res);
+        resolve(res)
+      }).catch(err=>{
+      reject(err)
+    })
+  })
+};
+
+export const getFoodsType=(geohash,params)=>{
+  return new Promise((resolve,reject)=>{
+    axios.get('v2/index_entry',params)
+      .then(res=>{
+        console.log(res);
+        resolve(res)
+      }).catch(err=>{
+      reject(err)
+    })
+  })
+};
+
+//获取经纬度
+export const cityGuess=()=>{
+  return new Promise((resolve,reject)=>{
+    axios.get('v1/cities',{type:'guess'})
+      .then(res=>{
+        console.log(res);
+        resolve(res)
+      }).catch(err=>{
+      reject(err)
+    })
+  })
 }
 
+//获取经纬度和准确的定位地址
+export const takeAddress=(parmas)=>{
+  return new Promise((resolve,reject)=>{
+    axios.get('v2/pois/'+parmas)
+      .then(res=>{
+        console.log(res);
+        resolve(res)
+      }).catch(err=>{
+      reject(err)
+    })
+  })
+};
+
+//foodlist
+export const getFoodList=(params)=>{
+  return new Promise((resolve,reject)=>{
+    axios.get('shopping/v2/restaurant/category',params)
+      .then(res=>{
+        console.log(res);
+        resolve(res)
+      }).catch(err=>{
+      reject(err)
+    })
+  })
+};
+
+
+//配送列表
+
+export const getFilterList=(params)=>{
+  return new Promise((resolve,reject)=>{
+    axios.get('shopping/v1/restaurants/delivery_modes',params)
+      .then(res=>{
+        console.log(res);
+        resolve(res)
+      }).catch(err=>{
+      reject(err)
+    })
+  })
+};
+
+
+//商家属性
+export const getShopList=(params)=>{
+  return new Promise((resolve,reject)=>{
+    axios.get('shopping/v1/restaurants/activity_attributes',params)
+      .then(res=>{
+        console.log(res);
+        resolve(res)
+      }).catch(err=>{
+      reject(err)
+    })
+  })
+}

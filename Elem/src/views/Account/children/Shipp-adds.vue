@@ -125,7 +125,7 @@
           });
           this.$router.go(-1);
           this.$store.state.adress.secondList=null;
-          this.$store.adress.list='';
+          this.$store.state.adress.list='';
         }
       }
     },

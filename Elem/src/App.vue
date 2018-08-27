@@ -1,12 +1,19 @@
 <template>
   <div id="app">
-    <router-view/>
+    <keep-alive>
+      <router-view v-if="$route.meta.keepAlive"/>
+    </keep-alive>
+    <keep-alive>
+      <router-view v-if="!$route.meta.keepAlive"/>
+    </keep-alive>
+    <icon-svg></icon-svg>
   </div>
 </template>
 
 <script>
+  import IconSvg from '@/components/IconSvg'
 export default {
-
+  components:{IconSvg}
 }
 </script>
 
@@ -210,4 +217,5 @@ export default {
   }
 
 .pub-mt{mt:10.6vw;}
+  .swiper-pagination-bullet{size:2vw;}
 </style>

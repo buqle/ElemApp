@@ -1,5 +1,5 @@
 import {
-  RECORD_USERINFO,GET_USERINFO,RESET_NAME,ALL_LIST,ADD_ADRESS,ADDS_ADRESS,SECOND_LIST,IN_FOOTER,GET_ORDER_LIST
+  RECORD_USERINFO,GET_USERINFO,RESET_NAME,ALL_LIST,ADD_ADRESS,ADDS_ADRESS,SECOND_LIST,IN_FOOTER,GET_ORDER_LIST,GET_FOOD_LIST,RECORD_GEOHSH,GET_SHOP_LIST
 } from "./mutationsTypes";
 
 import {setStore,getStore} from "../Utils/storage";
@@ -64,6 +64,22 @@ export default {
 [GET_ORDER_LIST](state,list){
   state.order.orderList=state.order.orderList.concat(list)
   //state.order.orderList=list
-}
+},
 
+//food-list
+[GET_FOOD_LIST](state,list){
+  state.foodList=list
+},
+
+//存储经纬度系列
+  [RECORD_GEOHSH](state,res){
+    state.geoList.foodTit=res.name;
+    state.geoList.latitude=res.latitude;
+    state.geoList.longitude=res.longitude;
+  },
+
+ //商家属性列表
+  [GET_SHOP_LIST](state,list){
+    state.shopList=list
+  }
 }

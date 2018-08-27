@@ -19,6 +19,12 @@ import Vstore from './store/index'
 //icon
 import './Utils/iconfont'
 
+//滑块组件
+import VueSwiper from 'vue-awesome-swiper';
+import 'swiper/dist/css/swiper.css';
+Vue.use(VueSwiper);
+
+
 Vue.config.productionTip = false;
 
 /* eslint-disable no-new */

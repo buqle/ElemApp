@@ -22,14 +22,26 @@ const state={
     secondList:null
   },
   footerList:[
-    {tit:'外卖',icon:'icon-mianfen',path:'/account/takeaway'},
-    {tit:'搜索',icon:'icon-sousuo',path:'/account/search'},
+    {tit:'外卖',icon:'icon-mianfen',path:'/takeaway'},
+    {tit:'搜索',icon:'icon-sousuo',path:'/search'},
     {tit:'订单',icon:'icon-dingdan-',path:'/order/orderlist'},
     {tit:`${getStore('user_id')?'我的':'未登录'}`,icon:'icon-wode',path:`${getStore('user_id')?'/account/box':'/login'}`}
     ],
+  footerShow:true,
   order:{
-    orderList:[]
-  }
+    orderList:[],
+    orderIcon:[]
+  },
+  geoList:{
+    latitude:'',
+    longitude:'',
+    geohash:'',
+    foodTit:'',
+    filterList:''
+  },
+  //foodlist
+  foodList:[],
+  shopList:[]
 };
 export default new Vuex.Store({
   state,getters,actions,mutations

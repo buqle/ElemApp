@@ -7,3 +7,6 @@ export const ADDS_ADRESS='ADDS_ADRESS';
 export const SECOND_LIST='SECOND_LIST';
 export const IN_FOOTER='IN_FOOTER';
 export const GET_ORDER_LIST='GET_ORDER_LIST';
+export const GET_FOOD_LIST='GET_FOOD_LIST';
+export const RECORD_GEOHSH='RECORD_GEOHSH';
+export const GET_SHOP_LIST='GET_SHOP_LIST'
