@@ -67,9 +67,9 @@
           </dl>
           商家属性(可多选)
           <dl flexcont flexcont2 class="filter-list-dl">
-            <dt v-for="(item,index) in shopList" :key="index" @click="shopId(index,item.id)">
+            <dt flexcont flexcont2 v-for="(item,index) in shopList" :key="index" @click="shopId(index,item.id)">
               <svg v-show="food.shopListArr[index].status">
-                <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#select"></use>
+                <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#selected"></use>
               </svg>
               <i :style="{color:`#${item.icon_color}`,borderColor:`#${item.icon_color}`}" v-show="!food.shopListArr[index].status">{{item.icon_name}}</i>
               {{item.name}}
@@ -270,13 +270,13 @@
     p:24px 30px;
   dl{
   svg{size:5vw;}mt:20px;
-  dt{bd:1px solid #eee;p:10px 0 10px 14px;fz:25px;c: #666;mr:20px;span.on{c:#3190e8;}w:200px;}
+  dt{bd:1px solid #eee;fz:25px;c: #666;mr:20px;span.on{c:#3190e8;}size:200px 60px;pl:16x;}
   }
   .filter-list-dl{
     flex-wrap: wrap;
   dt{mb:14px;}
-  i{bd:1px solid;p:0 10px;bdrs:4px;}
-  svg{c:#3190e8;}
+  i{bd:1px solid;p:0 6px;bdrs:4px;}
+  svg{fill:#3190e8;}
   }
   }
 
