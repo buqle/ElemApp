@@ -144,7 +144,7 @@
     computed:{
       ...mapState(['geoList','foodList','shopList'])
     },
-    //mixins: [getImgPath],
+    //mixins: [getImgPath],jjj
     methods:{
       chooseType(type){
         if(this.sortBy!==type){
